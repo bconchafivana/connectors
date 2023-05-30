@@ -1,0 +1,9 @@
+import pandas as pd
+import numpy as np
+from sqlalchemy import create_engine, text
+
+engine = create_engine('postgresql://postgres:9QqnUdZvr6zWz4W@pg-aurora-serverless.cluster-cyzwrcs8gffc.us-east-1.rds.amazonaws.com/FIVANA_DB')
+
+query = """select * from cobranzas_recursive_docs_with_executive"""
+
+df= pd.read_sql_query(sql=text(query), con=engine.connect())
